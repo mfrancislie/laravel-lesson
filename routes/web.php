@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ShowController;
+use App\Http\Controllers\StudentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,10 +16,14 @@ use App\Http\Controllers\ShowController;
 */
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
-//using routes or alias like this ->name('login')
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', [StudentController::class, 'index']);
+
+
+//using routes or alias like this ->name('login'    )
 Route::get('/user', [UserController::class, 'index'])->name('login');
 
 
